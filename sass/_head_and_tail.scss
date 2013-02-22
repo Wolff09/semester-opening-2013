@@ -1,0 +1,22 @@
+
+@mixin fixed_element($height: auto, $anchor: top) {
+	position: fixed;
+	#{$anchor}: 0;
+	left: 0;
+	width: 100%;
+	height: $height;
+	line-height: $height;
+	z-index: 10;
+}
+
+#header {
+	@include fixed_element;
+	background-image: url("../img/dummy/2.png"); // TODO: proper background (none with cool branding image, color)
+	text-align: center;
+	padding: 5px;
+}
+
+#footer {
+	@include fixed_element(50px, bottom);
+	background-image: url("../img/dummy/1.png"); // TODO: proper background (party people)
+}

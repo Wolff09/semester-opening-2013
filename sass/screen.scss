@@ -1,6 +1,15 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* 
+ * Main Place for Imports and Global Styles
+ */
 
+$background-color: #002;
+$head-color: #fff;
+$text-color: #ccc;
+// $number_of_pages: 3;
+
+// compass stuff
 @import "compass/reset";
+
+// custom stuff
+@import "head_and_tail";
+@import "main";

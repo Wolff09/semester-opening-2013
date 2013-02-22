@@ -1,0 +1,76 @@
+
+/* LAYERS */
+
+@mixin layer($zindex, $width: 940px) {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	width: $width;
+	margin-left: -$width/2;
+	z-index: $zindex;
+}
+
+#layerBackground {
+	@include layer(1, 100%);
+	height: 100%;
+	background-image: url("../img/bg1.gif"); // TODO: proper background (stars, aurora)
+}
+
+#layerBack {
+	@include layer(2);
+}
+
+#layerMiddle {
+	@include layer(3);
+}
+
+#layerFront {
+	@include layer(4);
+}
+
+#layerText {
+	@include layer(5);
+	position: absolute;
+}
+
+/* LAYER CONTENT */
+
+#layerBack, #layerMiddle, #layerFront {
+	div { position: absolute; }
+}
+
+$default_page_height: 1000px;
+$number_of_pages: 3;
+
+@mixin pages($page-list) {
+	@each $page_num in $page-list {
+		@include page($page_num);
+	}
+}
+
+@mixin page($page_number, $page_height: $default_page_height, $position_top: ($page_number - 1)*$page_height,
+													$horizontal_position: 0, $horizontal_position_type: left) {
+	#page#{$page_number} {
+		position: absolute;
+		top: $position_top;
+		#{$horizontal_position_type}: $horizontal_position;
+		padding: 30px;
+		padding-top: 150px;
+
+		background-color: #777;
+	}
+}
+
+#layerText {
+	@import "typography";
+	@for $num from 1 through $number_of_pages {
+		@include page($num);
+	}
+}
+
+body {
+	height: $number_of_pages*$default_page_height;
+}
+
+/* objects */
+// include them if not directly added to the html source

@@ -3,10 +3,10 @@
 		<title>Semester Opening 2013</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-		<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-		<link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		<link href="styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="styles/print.css" media="print" rel="stylesheet" type="text/css" />
 		<!--[if IE]>
-			<link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+			<link href="styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<![endif]-->
 
 		<script type="text/javascript" src="scripts/jquery.min.js"></script>
@@ -16,14 +16,14 @@
 			});
 
 			function parallaxScroll(){
-				// var scrolled = $(window).scrollTop();
-				// scrollLayer("X", scrolled, .3);
-				// scrollLayer("Y", scrolled, .5);
-				// scrollLayer("Z", scrolled, .7);
+				var scrolled = $(window).scrollTop();
+				// scrollLayer("Back", scrolled, .3);
+				// scrollLayer("Middle", scrolled, .5);
+				// scrollLayer("Front", scrolled, .7);
 			}
 
 			function scrollLayer(layer, scrolled, factor) {
-				$(".layer" + layer).each(function (evt){
+				$("#layer" + layer).each(function (evt){
 					newTop = (0 - (scrolled*factor)) + "px";
 					$(this).css("top", newTop);
 				});
@@ -32,6 +32,54 @@
 	</head>
 
 	<body>
-		
+		<div id="header">
+			<img id="branding" src="img/branding.png" alt="Semester Opening"></img>
+		</div>
+		<div id="root">
+			<!-- CONTENT -->
+			<div id="layerBackground"></div>
+			<div id="layerBack">
+				<!-- small stars, medium stars -->
+			</div>
+			<div id="layerMiddle">
+				<!-- medium stars, small planets -->
+			</div>
+			<div id="layerFront">
+				<!-- big planets -->
+			</div>
+			<div id="layerText">
+				<div id="page1">
+					<h1 id="page1-link">Semester Opening 2013</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<a class="scrollLink" href="#page2-link">Next Page</a>
+				</div>
+				<div id="page2">
+					<h1 id="page2-link">Cool Stuff Is Going To Happen</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur.</p>
+					<a class="scrollLink" href="#page1-link">Previous Page</a>
+					<a class="scrollLink" href="#page3-link">Next Page</a>
+				</div>
+				<div id="page3">
+					<h1 id="page3-link">Party! Party! Party! Party! IN SPACE!!!</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<a class="scrollLink" href="#page2-link">Previous Page</a>
+				</div>
+			</div>
+			<!-- END CONTENT -->
+			<div id="dummy_footer"></div>
+		</div>
+		<div id="footer"></div>
 	</body>
 </html>
