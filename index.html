@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Semester Opening 2013</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		<!--[if IE]>
+			<link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(window).bind('scroll', function(e){
+				parallaxScroll();
+			});
+
+			function parallaxScroll(){
+				// var scrolled = $(window).scrollTop();
+				// scrollLayer("X", scrolled, .3);
+				// scrollLayer("Y", scrolled, .5);
+				// scrollLayer("Z", scrolled, .7);
+			}
+
+			function scrollLayer(layer, scrolled, factor) {
+				$(".layer" + layer).each(function (evt){
+					newTop = (0 - (scrolled*factor)) + "px";
+					$(this).css("top", newTop);
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>
