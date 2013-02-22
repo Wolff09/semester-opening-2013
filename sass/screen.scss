@@ -5,7 +5,8 @@
 $background-color: #002;
 $head-color: #fff;
 $text-color: #ccc;
-// $number_of_pages: 3;
+$default_page_height: 1000px;
+$number_of_pages: 3;
 
 // compass stuff
 @import "compass/reset";

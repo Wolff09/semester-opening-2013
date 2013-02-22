@@ -1,0 +1,17 @@
+@import "compass/css3/border-radius";
+
+& {
+	@include border-radius(20px);
+	background-color: #FFF;
+	color: #000;
+	padding: 25px;
+	width: 350px;
+
+	h1 {
+		font-size: 18pt;
+	}
+
+	p {
+		font-size: 12pt;
+	}
+}

@@ -33,14 +33,14 @@
 	position: absolute;
 }
 
-/* LAYER CONTENT */
+/* OBJECT LAYERS CONTENT */
 
 #layerBack, #layerMiddle, #layerFront {
 	div { position: absolute; }
 }
+// include object classes from a dedicated file if not directly added to the html source
 
-$default_page_height: 1000px;
-$number_of_pages: 3;
+/* TEXT LAYER CONTENT */
 
 @mixin pages($page-list) {
 	@each $page_num in $page-list {
@@ -54,23 +54,20 @@ $number_of_pages: 3;
 		position: absolute;
 		top: $position_top;
 		#{$horizontal_position_type}: $horizontal_position;
-		padding: 30px;
 		padding-top: 150px;
-
-		background-color: #777;
 	}
 }
 
 #layerText {
-	@import "typography";
 	@for $num from 1 through $number_of_pages {
 		@include page($num);
+	}
+
+	.pageContentWrapper {
+		@import "content_box";
 	}
 }
 
 body {
 	height: $number_of_pages*$default_page_height;
 }
-
-/* objects */
-// include them if not directly added to the html source
