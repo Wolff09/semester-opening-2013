@@ -22,7 +22,7 @@ This page will use the following libraries/frameworks:
 - [Sass](http://sass-lang.com) with [Compass](http://compass-style.org)
 - [jQuery Scroll Animation](http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/) instead of the [jQuery ScrollTo Plugin](http://flesler.blogspot.de/2007/10/jqueryscrollto.html)
 
-## Things we might use
+### Things we might use
 
 - [Transit](http://ricostacruz.com/jquery.transit/#top)
 - [Modernizr](http://modernizr.com)
