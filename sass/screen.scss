@@ -50,9 +50,9 @@ $box-shadow-blur: 30px;
  * NAVI LINK SETTINGS
  */
 $link-color: $text-color;
-$link-color-hover: lighten($text-color, 75%);
+$link-color-hover: lighten($text-color, 85%);
 $link-background-color: darken($box-background-color, 20%);
-$link-background-color-hover: darken($box-background-color, 20%);
+$link-background-color-hover: darken($box-background-color, 50%);
 $link-border-color: darken($box-border-color, 50%);
 
 /*
