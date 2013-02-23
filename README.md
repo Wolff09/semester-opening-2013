@@ -16,16 +16,16 @@ is a very nice demo where you can see parallax scrolling in action.
 
 ### Resources
 
-This page will use the following libraries/frameworks:
+This page uses the following libraries/frameworks/stuff:
 
 - [jQuery](http://jquery.com)
 - [Sass](http://sass-lang.com) with [Compass](http://compass-style.org)
-- [jQuery Scroll Animation](http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/) instead of the [jQuery ScrollTo Plugin](http://flesler.blogspot.de/2007/10/jqueryscrollto.html)
+- [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll) instead of [jQuery Scroll Animation](http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/) and [jQuery ScrollTo Plugin](http://flesler.blogspot.de/2007/10/jqueryscrollto.html)
 
 ### Things we might use
 
-- [Transit](http://ricostacruz.com/jquery.transit/#top)
 - [Modernizr](http://modernizr.com)
+- [Transit](http://ricostacruz.com/jquery.transit/#top)
 - [Cool Infobox Style](http://www.prothemer.com/blog/experiments/no-presentational-markup-css3-infobox/)
 - [Flipping Links](http://davidwalsh.name/3d-menu)
 - [Animate](http://daneden.me/animate/)
@@ -34,3 +34,4 @@ This page will use the following libraries/frameworks:
 - [w00t?](http://media.24ways.org/2009/15/space.html)
 - [Link Background Animation](http://snook.ca/archives/javascript/jquery-bg-image-animations)
 - [Scrollorama](http://johnpolacek.github.com/scrollorama/)
+- [Easing Plugin](http://gsgd.co.uk/sandbox/jquery/easing/)

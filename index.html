@@ -10,31 +10,32 @@
 		<![endif]-->
 
 		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.smooth-scroll.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function (){
-				$(".scrollLink").click(function (evt){
-					id = $(this).attr("href");
-					$('body').animate({ scrollTop: $(id).offset().top }, 1400);
+				$(".scrollLink").bind('click.smoothscroll', function (evt){
+					id = this.hash;
+					// $('body').animate({ scrollTop: $(id).offset().top }, 1500, function(){ window.location.hash = id; });
+					$.smoothScroll({
+						scrollTarget: id,
+						afterScroll: function(){ window.location.hash = id; },
+						easing: "swing",
+						speed: 2500,
+					});
 					evt.preventDefault();
 				});
 
-				$(window).bind('scroll', function(e){
-					parallaxScroll();
-				});
+				$(window).scroll(function(e){ scrollLayer("Background", .1); });
+				$(window).scroll(function(e){ scrollLayer("Back", .3); });
+				$(window).scroll(function(e){ scrollLayer("Middle", .5); });
+				$(window).scroll(function(e){ scrollLayer("Front", .7); });
+				$(window).scroll(function(e){ scrollLayer("Fast", 1.5); });
 			});
 
-			function parallaxScroll(){
-				var scrolled = $(window).scrollTop();
-				scrollLayer("Background", scrolled, .1);
-				scrollLayer("Back", scrolled, .3);
-				scrollLayer("Middle", scrolled, .5);
-				scrollLayer("Front", scrolled, .7);
-				scrollLayer("Fast", scrolled, 1.5);
-			}
-
-			function scrollLayer(layer, scrolled, factor) {
+			function scrollLayer(layer, factor) {
 				$("#layer" + layer).each(function (evt){
-					newTop = (0 - (scrolled*factor)) + "px";
+					scrolled = $(window).scrollTop();
+					newTop = (- scrolled * factor) + "px";
 					$(this).css("top", newTop);
 				});
 			}
@@ -79,7 +80,9 @@
 						<h1>Semester Opening 2013</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua.</p>
-						<a class="scrollLink" href="#page2">Next Page</a>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page2">Next Page</a>
+						</div>
 					</div>
 				</div>
 				<div id="page2">
@@ -92,8 +95,10 @@
 						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 						cillum dolore eu fugiat nulla pariatur.</p>
-						<a class="scrollLink" href="#page1">Previous Page</a>
-						<a class="scrollLink" href="#page3">Next Page</a>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page1">Previous Page</a>
+							<a class="scrollLink" href="#page3">Next Page</a>
+						</div>
 					</div>
 				</div>
 				<div id="page3">
@@ -105,7 +110,9 @@
 						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						<a class="scrollLink" href="#page2">Previous Page</a>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page2">Previous Page</a>
+						</div>
 					</div>
 				</div>
 			</div>

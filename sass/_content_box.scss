@@ -1,30 +1,63 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
-@import url("http://fonts.googleapis.com/css?family=Unica+One:400|Abel:400");
+@import "compass/css3/hyphenation";
+@import "compass/css3/opacity";
+@import "compass/css3/text-shadow";
+
+@import "compass/css3/transition";
+@import "compass/css3/transform";
 
 & {
-	@include border-radius(20px);
-	background-color: #DFDFDF;
-	border: 2px solid #FC3;
-	@include single-box-shadow(darken(#FC3, 10), 1px, 1px, 15px);
-	color: #222;
-	padding: 25px;
-	width: 350px;
-	font-family: "Abel";
-	font-size: 14pt;
+	@include border-radius($box-border-radius);
+	background-color: $box-background-color;
+	@include opacity($box-opacity);
+	border: $box-border-width solid $box-border-color;
+	@include single-box-shadow($box-shadow-color, $box-shadow-width, $box-shadow-width, $box-shadow-blur);
+	color: $text-color;
+	padding: $box-padding;
+	width: $box-width;
+	font-family: $text-font;
+	font-size: $text-size;
 	line-height: 1.5em;
 
 	#{headings(all)} {
-		font-family: "Unica One";
+		font-family: $head-font;
+		color: $head-color;
 	}
 
 	h1 {
-		font-size: 30pt;
+		font-size: $head-size;
 		padding-bottom: .4em;
-		line-height: 1em;
+		line-height: $head-line-height;
+		@include single-text-shadow($head-shadow-hoff, $head-shadow-voff, $head-shadow-blur, false, $head-shadow-color);
+		font-weight: $head-font-weight;
 	}
 
 	p {
+		margin: 4px;
 		margin-bottom: 1em;
+		@include word-break(break-all);
+	}
+
+	.naviLinks {
+		text-align: center;
+		margin-top: 1.5em;
+
+		a.scrollLink {
+			border: 1px solid $link-border-color;
+			background-color: $link-background-color;
+			padding: 3px 6px;
+			text-decoration: none;
+			color: $link-color;
+			font-size: $text-size - 1;
+			margin: 4px;
+			@include border-radius(4px);
+
+			&:hover {
+				background-color: $link-background-color-hover;
+				color: $link-color-hover;
+				@include single-transition();
+			}
+		}
 	}
 }

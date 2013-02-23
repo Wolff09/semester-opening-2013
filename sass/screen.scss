@@ -2,15 +2,62 @@
  * Main Place for Imports and Global Styles
  */
 
+// Google Font API: Unica One 400, Abel 400
+@import url("http://fonts.googleapis.com/css?family=Unica+One:400|Abel:400");
+
+/*
+ * BASIC PAGE SETUP
+ */
 $background-color: #002;
-$head-color: #fff;
-$text-color: #ccc;
-$default_page_height: 1000px;
+$default_page_height: 2000px;
 $number_of_pages: 3;
 
-// compass stuff
-@import "compass/reset";
+/*
+ * HEADLINE SETTINGS
+ */
+$head-color: #444;
+$head-size: 32pt;
+$head-font: "Unica One";
+$head-font-weight: 400;
+$head-line-height: 1em;
+$head-shadow-hoff: 10px;
+$head-shadow-voff: 10px;
+$head-shadow-blur: 8px;
+$head-shadow-color: $head-color;
 
-// custom stuff
+/*
+ * TEXT BODY SETTINGS
+ */
+$text-color: #000;
+$text-size: 14pt;
+$text-font: "Abel";
+
+/*
+ * TEXT BOX SETTINGS
+ */
+$box-width: 350px;
+$box-padding: 25px 25px 15px 25px;
+$box-background-color: rgb(180, 190, 160); // #DFDFDF
+$box-opacity: .9;
+$box-border-color: lighten($box-background-color, 8%); //#FC3;
+$box-border-width: 2px;
+$box-border-radius: 20px;
+$box-shadow-color: #fff; // #FC3;
+$box-shadow-width: 2px;
+$box-shadow-blur: 30px;
+
+/*
+ * NAVI LINK SETTINGS
+ */
+$link-color: $text-color;
+$link-color-hover: lighten($text-color, 75%);
+$link-background-color: darken($box-background-color, 20%);
+$link-background-color-hover: darken($box-background-color, 20%);
+$link-border-color: darken($box-border-color, 50%);
+
+/*
+ * INCLUDE COMPASS AND CUSTOM STYLES
+ */
+@import "compass/reset";
 @import "head_and_tail";
 @import "main";
