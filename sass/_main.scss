@@ -28,6 +28,10 @@
 	@include layer(4);
 }
 
+#layerFast {
+	@include layer(6);
+}
+
 #layerText {
 	@include layer(5);
 	position: absolute;
@@ -35,7 +39,7 @@
 
 /* OBJECT LAYERS CONTENT */
 
-#layerBack, #layerMiddle, #layerFront {
+#layerBack, #layerMiddle, #layerFront, #layerFast {
 	div { position: absolute; }
 }
 // include object classes from a dedicated file if not directly added to the html source
@@ -54,7 +58,7 @@
 		position: absolute;
 		top: $position_top;
 		#{$horizontal_position_type}: $horizontal_position;
-		padding-top: 150px;
+		padding-top: 100px;
 	}
 }
 
@@ -68,6 +72,6 @@
 	}
 }
 
-body {
+body, #layerBackground {
 	height: $number_of_pages*$default_page_height;
 }

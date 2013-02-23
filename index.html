@@ -25,9 +25,11 @@
 
 			function parallaxScroll(){
 				var scrolled = $(window).scrollTop();
-				// scrollLayer("Back", scrolled, .3);
-				// scrollLayer("Middle", scrolled, .5);
-				// scrollLayer("Front", scrolled, .7);
+				scrollLayer("Background", scrolled, .1);
+				scrollLayer("Back", scrolled, .3);
+				scrollLayer("Middle", scrolled, .5);
+				scrollLayer("Front", scrolled, .7);
+				scrollLayer("Fast", scrolled, 1.5);
 			}
 
 			function scrollLayer(layer, scrolled, factor) {
@@ -48,12 +50,28 @@
 			<div id="layerBackground"></div>
 			<div id="layerBack">
 				<!-- small stars, medium stars -->
+				<div style="top: 90px; left: 20px;"><img src="img/planets/10.png"></div>
+				<div style="top: 600; left: 400px;"><img src="img/planets/12.png"></div>
+				<div style="top: 500; left: 100px;"><img src="img/planets/11.png"></div>
+				<div style="top: 1000; left: 600px;"><img src="img/planets/11.png"></div>
+				<div style="top: 800; left: 550px;"><img src="img/planets/10.png"></div>
+				<div style="top: 900; left: -450px;"><img src="img/iss.png"></div>
 			</div>
 			<div id="layerMiddle">
 				<!-- medium stars, small planets -->
+				<div style="top: 520px; left: -40px"><img src="img/planets/9.png"></div>
+				<div style="top: 950px; left: 350px"><img src="img/planets/8.png"></div>
+				<div style="top: 350px; left: 0px"><img src="img/planets/8.png"></div>
 			</div>
 			<div id="layerFront">
 				<!-- big planets -->
+				<div style="top: 120px; left: 520px;"><img src="img/planets/1.png"></div>
+				<div style="top: 900px; left: 520px;"><img src="img/planets/3.png"></div>
+				<div style="top: 830px; left: 840px;"><img src="img/planets/8.png"></div>
+				<div style="top: 1530px; left: 620px;"><img src="img/planets/2.png"></div>
+			</div>
+			<div id="layerFast">
+				<div style="top: 1000px; left: 500px;"><img src="img/rocket.png"></div>
 			</div>
 			<div id="layerText">
 				<div id="page1">
@@ -80,7 +98,7 @@
 				</div>
 				<div id="page3">
 					<div class="pageContentWrapper">
-						<h1>Party! Party! Party! Party! IN SPACE!!!</h1>
+						<h1>Party! Party! Party! I&nbsp;N&nbsp; &nbsp;S&nbsp;P&nbsp;A&nbsp;C&nbsp;E&nbsp;!&nbsp;!&nbsp;!</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

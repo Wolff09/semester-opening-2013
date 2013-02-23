@@ -1,17 +1,30 @@
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import url("http://fonts.googleapis.com/css?family=Unica+One:400|Abel:400");
 
 & {
 	@include border-radius(20px);
-	background-color: #FFF;
-	color: #000;
+	background-color: #DFDFDF;
+	border: 2px solid #FC3;
+	@include single-box-shadow(darken(#FC3, 10), 1px, 1px, 15px);
+	color: #222;
 	padding: 25px;
 	width: 350px;
+	font-family: "Abel";
+	font-size: 14pt;
+	line-height: 1.5em;
+
+	#{headings(all)} {
+		font-family: "Unica One";
+	}
 
 	h1 {
-		font-size: 18pt;
+		font-size: 30pt;
+		padding-bottom: .4em;
+		line-height: 1em;
 	}
 
 	p {
-		font-size: 12pt;
+		margin-bottom: 1em;
 	}
 }

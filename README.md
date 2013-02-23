@@ -33,3 +33,4 @@ This page will use the following libraries/frameworks:
 - [Sprite Driven Animation](http://www.spritely.net/documentation/)
 - [w00t?](http://media.24ways.org/2009/15/space.html)
 - [Link Background Animation](http://snook.ca/archives/javascript/jquery-bg-image-animations)
+- [Scrollorama](http://johnpolacek.github.com/scrollorama/)
