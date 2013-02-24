@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<title>Semester Opening 2013</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/TweenMax.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.superscrollorama.js"></script>
+		<!--<script type="text/javascript" src="scripts/jquery.smooth-scroll.min.js"></script>-->
+		<script type="text/javascript">
+			$(document).ready(function (){
+				$(".scrollLink").bind('click.smoothscroll', function (evt){
+					id = this.hash;
+					$('body').animate({ scrollLeft: $(id).offset().left }, 1500, function(){ window.location.hash = id; });
+					evt.preventDefault();
+				});
+
+			});
+
+			$(window).scroll(function (argument) { scrollStuff("medium", -.21); })
+			$(window).scroll(function (argument) { scrollStuff("fast", -.53); })
+
+			function scrollStuff(stuff, factor) {
+				scrolled = $(window).scrollLeft();
+				$("." + stuff).each(function (evt){
+					newLeft = (- scrolled * factor) + "px";
+					$(this).css("left", newLeft);
+				});
+			}
+		</script>
+
+		<style type="text/css">
+			.page {
+				position: absolute;
+				top: 0;
+				padding-left: 200px;
+				padding-top: 150px;
+				width: 100%;
+			}
+			.page .pageContentWrapper {
+				background-color: grey;
+				width: 350px;
+				padding: 20px;
+			}
+			#page1 { left: 0; }
+			#page2 { left: 100%; padding-left: 60%; }
+			#page3 { left: 200%; }
+			.stuff img {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body style="background-image: url(img/bg1.gif); overflow: hidden;">
+		<div id="header" style="position: fixed; top: 0; left; 0; width: 100%; text-align: center; background-color: black;">
+			<img id="branding" src="img/branding.png" alt="Semester Opening"></img>
+		</div>
+
+		<!--<div id="layerBack">
+			<img src="img/planets/10.png" style="top: 90px; left: 20px;">
+			<img src="img/planets/12.png" style="top: 600; left: 400px;">
+			<img src="img/planets/11.png" style="top: 500; left: 100px;">
+			<img src="img/planets/11.png" style="top: 1000; left: 600px;">
+			<img src="img/planets/10.png" style="top: 800; left: 550px;">
+			<img src="img/planets/8.png" style="top: 950px; left: 350px;">
+			<img src="img/iss.png" style="top: 900; left: -450px;">
+		</div>
+		<div id="layerMiddle">
+			<img src="img/planets/9.png" style="top: 520px; left: -40px">
+			<img src="img/planets/8.png" style="top: 830px; left: 840px;">
+		</div>
+		<div id="layerFront">
+			<img src="img/planets/8.png" style="top: 350px; left: 0px;">
+			<img src="img/planets/1.png" style="top: 120px; left: 520px;">
+			<img src="img/planets/3.png" style="top: 900px; left: 520px;">
+			<img src="img/planets/2.png" style="top: 1530px; left: 620px;">
+		</div>
+		<div id="layerFast">
+			<img src="img/rocket.png" style="top: 1000px; left: 500px;">
+		</div>-->
+		<div class="stuff">
+			<img class="medium" src="img/planets/8.png" style="top: 520px; left 0; margin-left: 960px;">
+			<img class="fast" src="img/planets/1.png" style="top: 120px; left 0; margin-left: 620px;">
+		</div>
+
+		<div class="page" id="page1">
+			<div class="pageContentWrapper">
+				<h1>Semester Opening 2013</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="naviLinks">
+					<a class="scrollLink" href="#page2">Next Page</a>
+				</div>
+			</div>
+		</div>
+		<div class="page" id="page2">
+			<div class="pageContentWrapper">
+				<h1>Cool Stuff Is Going To Happen</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur.</p>
+				<div class="naviLinks">
+					<a class="scrollLink" href="#page1">Previous Page</a>
+					<a class="scrollLink" href="#page3">Next Page</a>
+				</div>
+			</div>
+		</div>
+		<div class="page" id="page3">
+			<div class="pageContentWrapper">
+				<h1>Party! Party! Party! I&nbsp;N&nbsp; &nbsp;S&nbsp;P&nbsp;A&nbsp;C&nbsp;E&nbsp;!&nbsp;!&nbsp;!</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="naviLinks">
+					<a class="scrollLink" href="#page2">Previous Page</a>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

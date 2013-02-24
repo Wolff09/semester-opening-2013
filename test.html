@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<title>Semester Opening 2013</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<link href="styles/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="styles/print.css" media="print" rel="stylesheet" type="text/css" />
+		<!--[if IE]>
+			<link href="styles/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/TweenMax.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.superscrollorama.js"></script>
+		<script type="text/javascript" src="scripts/jquery.smooth-scroll.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function (){
+				$(".scrollLink").bind('click.smoothscroll', function (evt){
+					id = this.hash;
+					// $('body').animate({ scrollTop: $(id).offset().top }, 1500, function(){ window.location.hash = id; });
+					$.smoothScroll({
+						scrollTarget: id,
+						afterScroll: function(){ window.location.hash = id; },
+						easing: "swing",
+						speed: 2500,
+					});
+					evt.preventDefault();
+				});
+			});
+
+			$(document).ready(function() {
+				var controller = $.superscrollorama();
+
+				var bodyHeight = 6000;
+
+				// controller.addTween(
+				//	0,
+				//	(new TimelineLite()).append([
+				//		TweenMax.fromTo($('#layerBackground img'), 1, 
+				//			{css: {top: cssStart}, immediateRender: true}, 
+				//			{css: {top: cssEnd}}),
+				//		TweenMax.fromTo($('#layerBack img'), 1,
+				//			{css: {top: cssStart}, immediateRender: true}, 
+				//			{css: {top: cssEnd*1.5}}),
+				//		TweenMax.fromTo($('#layerMiddle img'), 1,
+				//			{css: {top: cssStart}, immediateRender: true}, 
+				//			{css: {top: cssEnd*2}}),
+				//		TweenMax.fromTo($('#layerFront img'), 1,
+				//			{css: {top: cssStart}, immediateRender: true}, 
+				//			{css: {top: cssEnd*3}}),
+				//		TweenMax.fromTo($('#layerFast img'), 1,
+				//			{css: {top: cssStart}, immediateRender: true}, 
+				//			{css: {top: cssEnd*7}}),
+				//	]),
+				//	bodyHeight // scroll duration of tween
+				// );
+
+				controller.addTween(
+					0,
+					(new TimelineLite()).append([
+						// layerBack
+						TweenMax.fromTo($("#o1"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o2"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o3"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o4"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o5"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o6"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						TweenMax.fromTo($("#o7"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -500}}),
+						// layerMiddle
+						TweenMax.fromTo($("#o8"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1000}}),
+						TweenMax.fromTo($("#o9"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1000}}),
+						// layerFont
+						TweenMax.fromTo($("#o10"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1500}}),
+						TweenMax.fromTo($("#o11"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1500}}),
+						TweenMax.fromTo($("#o12"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1500}}),
+						TweenMax.fromTo($("#o13"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -1500}}),
+						// layerFast
+						TweenMax.fromTo($("#o14"), 1, {immediateRender: true, css: {top: 0}}, {css: {top: -4000}}),
+					]),
+					bodyHeight
+				);
+
+			});
+		</script>
+		<style type="text/css">
+			.stuff { position: absolute; }
+			#o1, #o2, #o3, #o4, #o5, #o6, #o7 { z-index: 2; background-color: red; }
+			#o8, #o9 { z-index: 3; background-color: orange; }
+			#o10, #o11, #o12, #o13 { z-index: 4; background-color: yellow; }
+			#o14 { z-index: 5; background-color: grey; }
+			/* layerBack */
+			#o1 { top: 0; margin-top: 90px; left: 20px; }
+			#o2 { top: 0; margin-top: 600px; left: 400px; }
+			#o3 { top: 0; margin-top: 500px; left: 100px; }
+			#o4 { top: 0; margin-top: 1000px; left: 600px; }
+			#o5 { top: 0; margin-top: 800px; left: 550px; }
+			#o6 { top: 0; margin-top: 950px; left: 350px; }
+			#o7 { top: 0; margin-top: 900px; left: -450px; }
+			/* layerMiddle */
+			#o8 { top: 0; margin-top: 520px; left: -40px; }
+			#o9 { top: 0; margin-top: 830px; left: 840px; }
+			/* layerFont */
+			#o10 { top: 0; margin-top: 350px; left: 0px; }
+			#o11 { top: 0; margin-top: 120px; left: 520px; }
+			#o12 { top: 0; margin-top: 900px; left: 520px; }
+			#o13 { top: 0; margin-top: 1530px; left: 620px; }
+			/* layerFast */
+			#o14 { top: 0; margin-top: 1000px; left: 500px; }
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<img id="branding" src="img/branding.png" alt="Semester Opening"></img>
+		</div>
+		<div id="root">
+			<!-- CONTENT -->
+			<div id="layerBackground"></div>
+			<div id="layerBack" style="">
+				<!-- small stars, medium stars -->
+				<img class="stuff" id="o1" src="img/planets/10.png">
+				<img class="stuff" id="o2" src="img/planets/12.png">
+				<img class="stuff" id="o3" src="img/planets/11.png">
+				<img class="stuff" id="o4" src="img/planets/11.png">
+				<img class="stuff" id="o5" src="img/planets/10.png">
+				<img class="stuff" id="o6" src="img/planets/8.png">
+				<img class="stuff" id="o7" src="img/iss.png">
+			</div>
+			<div id="layerMiddle" style="">
+				<!-- medium stars, small planets -->
+				<img class="stuff" id="o8" src="img/planets/9.png">
+				<img class="stuff" id="o9" src="img/planets/8.png">
+			</div>
+			<div id="layerFront" style="">
+				<!-- big planets -->
+				<img class="stuff" id="o10" src="img/planets/8.png">
+				<img class="stuff" id="o11" src="img/planets/1.png">
+				<img class="stuff" id="o12" src="img/planets/3.png">
+				<img class="stuff" id="o13" src="img/planets/2.png">
+			</div>
+			<div id="layerFast" style="">
+				<img class="stuff" id="o14" src="img/rocket.png">
+			</div>
+			<div id="layerText">
+				<div id="page1">
+					<div class="pageContentWrapper">
+						<h1>Semester Opening 2013</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page2">Next Page</a>
+						</div>
+					</div>
+				</div>
+				<div id="page2">
+					<div class="pageContentWrapper">
+						<h1>Cool Stuff Is Going To Happen</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur.</p>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page1">Previous Page</a>
+							<a class="scrollLink" href="#page3">Next Page</a>
+						</div>
+					</div>
+				</div>
+				<div id="page3">
+					<div class="pageContentWrapper">
+						<h1>Party! Party! Party! I&nbsp;N&nbsp; &nbsp;S&nbsp;P&nbsp;A&nbsp;C&nbsp;E&nbsp;!&nbsp;!&nbsp;!</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<div class="naviLinks">
+							<a class="scrollLink" href="#page2">Previous Page</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END CONTENT -->
+			<div id="dummy_footer"></div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

@@ -20,21 +20,24 @@
 						scrollTarget: id,
 						afterScroll: function(){ window.location.hash = id; },
 						easing: "swing",
-						speed: 2500,
+						speed: 1750,
 					});
 					evt.preventDefault();
 				});
 
-				$(window).scroll(function(e){ scrollLayer("Background", .1); });
-				$(window).scroll(function(e){ scrollLayer("Back", .3); });
-				$(window).scroll(function(e){ scrollLayer("Middle", .5); });
-				$(window).scroll(function(e){ scrollLayer("Front", .7); });
-				$(window).scroll(function(e){ scrollLayer("Fast", 1.6); });
+				$(window).scroll(function(e){
+					// parallax scrolling
+					var scrolled = $(window).scrollTop();
+					scrollLayer("Background", .1, scrolled);
+					scrollLayer("Back", .3, scrolled);
+					scrollLayer("Middle", .5, scrolled);
+					scrollLayer("Front", .7, scrolled);
+					scrollLayer("Fast", 1.6, scrolled);
+				});
 			});
 
-			function scrollLayer(layer, factor) {
-				$("#layer" + layer).each(function (evt){
-					scrolled = $(window).scrollTop();
+			function scrollLayer(layer, factor, scrolled) {
+				$("img" ,"#layer" + layer).each(function (evt){
 					newTop = (- scrolled * factor) + "px";
 					$(this).css("top", newTop);
 				});
@@ -51,28 +54,28 @@
 			<div id="layerBackground"></div>
 			<div id="layerBack">
 				<!-- small stars, medium stars -->
-				<div style="top: 90px; left: 20px;"><img src="img/planets/10.png"></div>
-				<div style="top: 600; left: 400px;"><img src="img/planets/12.png"></div>
-				<div style="top: 500; left: 100px;"><img src="img/planets/11.png"></div>
-				<div style="top: 1000; left: 600px;"><img src="img/planets/11.png"></div>
-				<div style="top: 800; left: 550px;"><img src="img/planets/10.png"></div>
-				<div style="top: 950px; left: 350px"><img src="img/planets/8.png"></div>
-				<div style="top: 900; left: -450px;"><img src="img/iss.png"></div>
+				<img src="img/planets/10.png" style="top: 0; margin-top: 90px; left: 20px;">
+				<img src="img/planets/12.png" style="top: 0; margin-top: 600; left: 400px;">
+				<img src="img/planets/11.png" style="top: 0; margin-top: 500; left: 100px;">
+				<img src="img/planets/11.png" style="top: 0; margin-top: 1000; left: 600px;">
+				<img src="img/planets/10.png" style="top: 0; margin-top: 800; left: 550px;">
+				<img src="img/planets/8.png" style="top: 0; margin-top: 950px; left: 350px;">
+				<img src="img/iss.png" style="top: 0; margin-top: 900; left: -450px;">
 			</div>
 			<div id="layerMiddle">
 				<!-- medium stars, small planets -->
-				<div style="top: 520px; left: -40px"><img src="img/planets/9.png"></div>
-				<div style="top: 830px; left: 840px;"><img src="img/planets/8.png"></div>
+				<img src="img/planets/9.png" style="top: 0; margin-top: 520px; left: -40px">
+				<img src="img/planets/8.png" style="top: 0; margin-top: 830px; left: 840px;">
 			</div>
 			<div id="layerFront">
 				<!-- big planets -->
-				<div style="top: 350px; left: 0px"><img src="img/planets/8.png"></div>
-				<div style="top: 120px; left: 520px;"><img src="img/planets/1.png"></div>
-				<div style="top: 900px; left: 520px;"><img src="img/planets/3.png"></div>
-				<div style="top: 1530px; left: 620px;"><img src="img/planets/2.png"></div>
+				<img src="img/planets/8.png" style="top: 0; margin-top: 350px; left: 0px;">
+				<img src="img/planets/1.png" style="top: 0; margin-top: 120px; left: 520px;">
+				<img src="img/planets/3.png" style="top: 0; margin-top: 900px; left: 520px;">
+				<img src="img/planets/2.png" style="top: 0; margin-top: 1530px; left: 620px;">
 			</div>
 			<div id="layerFast">
-				<div style="top: 1000px; left: 500px;"><img src="img/rocket.png"></div>
+				<img src="img/rocket.png" style="top: 0; margin-top: 1000px; left: 500px;">
 			</div>
 			<div id="layerText">
 				<div id="page1">

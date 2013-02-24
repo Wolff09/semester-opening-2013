@@ -40,7 +40,7 @@
 /* OBJECT LAYERS CONTENT */
 
 #layerBack, #layerMiddle, #layerFront, #layerFast {
-	div { position: absolute; }
+	div, img { position: absolute; }
 }
 // include object classes from a dedicated file if not directly added to the html source
 
