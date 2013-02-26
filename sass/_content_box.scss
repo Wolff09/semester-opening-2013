@@ -120,4 +120,86 @@
 			}
 		}
 	}
+
+	/* ######################################################################################
+	   ##################### Your are entering the experimental stage ! #####################
+	   ###################################################################################### */
+
+	.navi {
+		display: block;
+		li { display: inline-block; }
+
+		a {
+			font-size: $text-size;
+			display: block;
+			text-decoration: none;
+			// font-smoothing: antialiased;
+			// text-transform: uppercase;
+			overflow: visible;
+			padding: 3px 3px;
+		}
+
+		a:hover {
+		}
+
+		/* animation domination */
+		.three-d {
+			-webkit-perspective: 200px;
+			-webkit-transition: all .07s linear;
+			position: relative;
+			cursor: pointer;
+		}
+		/* complete the animation! */
+		.three-d:hover .three-d-box, 
+		.three-d:focus .three-d-box {
+			-webkit-transform: translateZ(-25px) rotateX(90deg);
+		}
+
+		.three-d-box {
+			-webkit-transition: all .3s ease-out;
+			-webkit-transform: translatez(-25px);
+			-webkit-transform-style: preserve-3d;
+			pointer-events: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		/* 
+			put the "front" and "back" elements into place with CSS transforms, 
+			specifically translation and translatez
+		*/
+		.front {
+			-webkit-transform: rotatex(0deg) translatez(15px);
+		}
+
+		.back {
+			-webkit-transform: rotatex(-90deg) translatez(15px);
+		}
+
+		.front, .back {
+			color: inherit;
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 3px 3px;
+			pointer-events: none;
+			box-sizing: border-box;
+		}
+
+		.front {
+			color: $link-color;
+			background-color: $link-background-color;
+		}
+		.back {
+			color: darken($head-color, 20%);
+			background-color: $head-background-color;
+		}
+	}
 }

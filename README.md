@@ -27,7 +27,7 @@ This page uses the following libraries/frameworks/stuff:
 ### Things we might use
 
 - [Transit](http://ricostacruz.com/jquery.transit/#top)
-- [Flipping Links](http://davidwalsh.name/3d-menu)
+- [Flipping Links](http://davidwalsh.name/3d-menu), [more](http://www.dreamdealer.nl/articles/how_to_create_3d_links_rolling_on_hover.html)
 - [Animate](http://daneden.me/animate/)
 - [CSS3 Card Flips](http://css3playground.com/flip-card.php), [more](http://css3.bradshawenterprises.com/flip/)
 - [Sprite Driven Animation](http://www.spritely.net/documentation/)
