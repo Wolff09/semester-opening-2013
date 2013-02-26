@@ -21,12 +21,12 @@ This page uses the following libraries/frameworks/stuff:
 - [jQuery](http://jquery.com)
 - [Sass](http://sass-lang.com) with [Compass](http://compass-style.org)
 - [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll) instead of [jQuery Scroll Animation](http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/) and [jQuery ScrollTo Plugin](http://flesler.blogspot.de/2007/10/jqueryscrollto.html)
+- [CSS3 Infobox](http://www.prothemer.com/blog/experiments/no-presentational-markup-css3-infobox/)
+- <span style="text-decoration: line-through">[Html9Boilerstrap](http://html9responsiveboilerstrapjs.com/)</span> [HTML5Boilerplate](http://html5boilerplate.com) (mit [Modernizr](http://modernizr.com))
 
 ### Things we might use
 
-- [Modernizr](http://modernizr.com)
 - [Transit](http://ricostacruz.com/jquery.transit/#top)
-- [Cool Infobox Style](http://www.prothemer.com/blog/experiments/no-presentational-markup-css3-infobox/)
 - [Flipping Links](http://davidwalsh.name/3d-menu)
 - [Animate](http://daneden.me/animate/)
 - [CSS3 Card Flips](http://css3playground.com/flip-card.php), [more](http://css3.bradshawenterprises.com/flip/)
