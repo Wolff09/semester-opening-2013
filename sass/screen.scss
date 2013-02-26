@@ -11,32 +11,46 @@ $default_page_height: 1300px;
 $number_of_pages: 3;
 
 // HEADLINE SETTINGS
-$head-color: #444;
+$head-overflow-size: 25px;
+$head-color: #424242; // #ddd;
 $head-size: 32pt;
 $head-font: "Unica One";
 $head-font-weight: 400;
 $head-line-height: 1em;
-$head-shadow-hoff: 10px;
-$head-shadow-voff: 10px;
-$head-shadow-blur: 8px;
-$head-shadow-color: $head-color;
+$head-padding-top-bottom: .3em;
+$head-padding-left-right: .5em;
+$head-margin-bottom: .5em;
+$head-background-shadow-color: rgba(0,0,0,0.75);
+$head-background-shadow-width: 4px;
+$head-background-shadow-blur: 26px;
+$head-background-color: #FF8F40;
+$head-background-use-gradient: true;
+$head-background-color-start: darken($head-background-color, 23%);
+$head-background-color-end: darken($head-background-color, 12%);
+$head-background-badge-fade: 10%;
+$head-text-shadows: none; // $head-color 5px 5px 15px; // #999 -4px -1px 1px, #777 -6px -1px 1px,
 
 // TEXT BODY SETTINGS
-$text-color: #000;
+$text-color: #f1f1f1;
 $text-size: 14pt;
 $text-font: "Abel";
 
 // TEXT BOX SETTINGS
 $box-width: 350px;
-$box-padding: 25px 25px 15px 25px;
-$box-background-color: rgb(180, 190, 160); // #DFDFDF
-$box-opacity: .9;
+$box-padding-top: 10px;
+$box-padding-bottom: 5px;
+$box-padding-left-right: 5px;
+$box-background-color: #424242; // rgb(180, 190, 160); // #DFDFDF
+$box-background-use-gradient: true;
+$box-background-color-start: #6a6a6a;
+$box-background-color-end: #424242;
+$box-opacity: 1; // .9;
 $box-border-color: lighten($box-background-color, 8%); //#FC3;
 $box-border-width: 2px;
-$box-border-radius: 20px;
-$box-shadow-color: #fff; // #FC3;
-$box-shadow-width: 2px;
-$box-shadow-blur: 30px;
+$box-border-radius: 2px; // 20px;
+$box-shadow-color: rgba(0,0,0,0.55); // #FFF;
+$box-shadow-width: 0;
+$box-shadow-blur: 3px;
 
 // NAVI LINK SETTINGS
 $link-color: $text-color;
@@ -45,7 +59,11 @@ $link-background-color: darken($box-background-color, 20%);
 $link-background-color-hover: darken($box-background-color, 50%);
 $link-border-color: darken($box-border-color, 50%);
 
+
 // INCLUDE COMPASS AND CUSTOM STYLES
-@import "compass/reset";
+// @import "compass/reset";
+@import "html5bs/normalize";
+@import "html5bs/defaults";
+@import "html5bs/helpers";
 @import "head_and_tail";
 @import "main";

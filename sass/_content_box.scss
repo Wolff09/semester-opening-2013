@@ -3,40 +3,100 @@
 @import "compass/css3/hyphenation";
 @import "compass/css3/opacity";
 @import "compass/css3/text-shadow";
+@import "compass/css3/images";
 
+// TODO: do we need the following?
 @import "compass/css3/transition";
 @import "compass/css3/transform";
 
 & {
-	@include border-radius($box-border-radius);
-	background-color: $box-background-color;
-	@include opacity($box-opacity);
-	border: $box-border-width solid $box-border-color;
-	@include single-box-shadow($box-shadow-color, $box-shadow-width, $box-shadow-width, $box-shadow-blur);
-	color: $text-color;
-	padding: $box-padding;
 	width: $box-width;
+	padding: $box-padding-top $box-padding-left-right $box-padding-bottom $box-padding-left-right;
+	position: relative;
+	z-index: 10;
+	@include border-radius($box-border-radius);
+	@include single-box-shadow($box-shadow-color, $box-shadow-width, $box-shadow-width, $box-shadow-blur);
+	@include opacity($box-opacity);
+	background: $box-background-color;
+	@if $box-background-use-gradient {
+		@include background-image(linear-gradient($box-background-color-start, $box-background-color-end));
+	}
+	border: $box-border-width solid $box-border-color;
+	color: $text-color;
+	font-size: 90%;
 	font-family: $text-font;
 	font-size: $text-size;
 	line-height: 1.5em;
 
 	#{headings(all)} {
-		font-family: $head-font;
+		position: relative;
+		width: $box-width + 2*$head-overflow-size;
 		color: $head-color;
-	}
+		padding: $head-padding-top-bottom 0;
+		margin-left: -$head-overflow-size;
+		margin-right: -$head-overflow-size;
+		margin-top: 0;
+		margin-bottom: $head-margin-bottom;
+		left: 0;
+		z-index: 11;
 
-	h1 {
+		@include single-box-shadow($head-background-shadow-color, $head-background-shadow-width, $head-background-shadow-width, $head-background-shadow-blur);
+		background: $head-background-color;
+		@if $head-background-use-gradient {
+			@include background-image(linear-gradient($head-background-color-start, $head-background-color-end));
+		}
+
+		font-family: $head-font;
 		font-size: $head-size;
-		padding-bottom: .4em;
 		line-height: $head-line-height;
-		@include single-text-shadow($head-shadow-hoff, $head-shadow-voff, $head-shadow-blur, false, $head-shadow-color);
 		font-weight: $head-font-weight;
+		text-align: center;
+		@include text-shadow($head-text-shadows...);
+
+		@mixin badge-effect-triangle($anchor) {
+			$badge-border-width: $head-overflow-size - $box-border-width - $box-padding-left-right;
+			content: "\00a0";
+			display: block; /* reduce the damage in FF3.0 */
+			position: absolute;
+			bottom: -2*$badge-border-width; /* value = - border-top-width - border-bottom-width */
+			#{$anchor}: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: $badge-border-width;
+			@if $head-background-use-gradient {
+				border-color: darken($head-background-color-end, $head-background-badge-fade) transparent transparent;
+			}
+			@else {
+				border-color: darken($head-background-color, $head-background-badge-fade) transparent transparent;
+			}
+			z-index: 9;
+		}
+
+		&:before {
+			@include badge-effect-triangle("left");
+			border-right-width: 0;
+		}
+
+		&:after {
+			@include badge-effect-triangle("right");
+			border-left-width: 0;
+		}
+
+		span {
+			display: block;
+			padding: 0 $head-padding-left-right;
+		}
 	}
 
 	p {
 		margin: 4px;
 		margin-bottom: 1em;
 		@include word-break(break-all);
+
+		strong {
+			display: block;
+		}
 	}
 
 	.naviLinks {
