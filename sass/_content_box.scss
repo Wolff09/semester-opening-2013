@@ -53,6 +53,36 @@
 		text-align: center;
 		@include text-shadow($head-text-shadows...);
 
+		@mixin badge-effect-triangle($anchor) {
+			$badge-border-width: $head-overflow-size - $box-border-width - $box-padding-left-right;
+			content: "\00a0";
+			display: block; /* reduce the damage in FF3.0 */
+			position: absolute;
+			bottom: -2*$badge-border-width; /* value = - border-top-width - border-bottom-width */
+			#{$anchor}: 0;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: $badge-border-width;
+			@if $head-background-use-gradient {
+				border-color: darken($head-background-color-end, $head-background-badge-fade) transparent transparent;
+			}
+			@else {
+				border-color: darken($head-background-color, $head-background-badge-fade) transparent transparent;
+			}
+			z-index: 9;
+		}
+
+		&:before {
+			@include badge-effect-triangle("left");
+			border-right-width: 0;
+		}
+
+		&:after {
+			@include badge-effect-triangle("right");
+			border-left-width: 0;
+		}
+
 		span {
 			display: block;
 			padding: 0 $head-padding-left-right;
@@ -63,6 +93,10 @@
 		margin: 4px;
 		margin-bottom: 1em;
 		@include word-break(break-all);
+
+		strong {
+			display: block;
+		}
 	}
 
 	.naviLinks {
@@ -86,57 +120,4 @@
 			}
 		}
 	}
-
-
-	/* ##############################################################################
-	   ################## You are entering the experimental zone ! ##################
-	   ############################################################################## */
-
-	@mixin badge-effect-triangle($anchor) {
-		$badge-border-width: $head-overflow-size - $box-border-width - $box-padding-left-right;
-		content: "\00a0";
-		display: block; /* reduce the damage in FF3.0 */
-		position: absolute;
-		bottom: -2*$badge-border-width; /* value = - border-top-width - border-bottom-width */
-		#{$anchor}: 0;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: $badge-border-width;
-		@if $head-background-use-gradient {
-			border-color: darken($head-background-color-end, $head-background-badge-fade) transparent transparent;
-		}
-		@else {
-			border-color: darken($head-background-color, $head-background-badge-fade) transparent transparent;
-		}
-		z-index: 9;
-	}
-
-	#{headings(all)} {
-		&:before {
-			@include badge-effect-triangle("left");
-			border-right-width: 0;
-		}
-
-		&:after {
-			@include badge-effect-triangle("right");
-			border-left-width: 0;
-		}
-	}
-
-
-	// &:before { @include badge-effect-triangle("left"); }
-	// &:after { @include badge-effect-triangle("right"); }
-
-	/* left shadow */
-
-	.infobox p{
-	font-size:1.2em;
-	color:#fff;
-	margin:15px 5px 10px 10px;
-	}
-	.infobox strong{
-	display:block;
-	}
-
 }
