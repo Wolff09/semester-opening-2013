@@ -198,8 +198,116 @@
 			background-color: $link-background-color;
 		}
 		.back {
-			color: darken($head-color, 20%);
-			background-color: $head-background-color;
+			color: $link-color-hover;
+			background-color: $link-background-color-hover;
+		}
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
+
+	.navi2 {
+		margin-left: 2em;
+
+		a {
+			font-size: $text-size;
+		    text-decoration: none;
+		    color: $link-color;
+		}
+		    
+		a:hover {
+		    color: $link-color-hover;
+		    text-shadow: none;
+		    border: none;
+		    border-radius: 2px;
+		}
+
+		a span {
+			// background-color: yellow;
+			background-color: $link-background-color;
+		}
+
+		/*********************************************
+		 * ROLLING LINKS
+		 *********************************************/
+
+		.roll {
+		    display: inline-block;
+		    overflow: hidden;
+		    vertical-align: top;
+
+		    -webkit-perspective: 300px;
+		       -moz-perspective: 300px;
+		        -ms-perspective: 300px;
+		            perspective: 300px;
+
+		    -webkit-perspective-origin: 50% 50%;
+		       -moz-perspective-origin: 50% 50%;
+		        -ms-perspective-origin: 50% 50%;
+		            perspective-origin: 50% 50%;
+
+			// -webkit-perspective: 200px;
+			// -webkit-transition: all .07s linear;
+		}
+		.roll:hover {
+		    background: none;
+		    text-shadow: none;
+		}
+		.roll span {
+		    display: block;
+		    position: relative;
+		    padding: 0 2px;
+		    pointer-events: none;
+
+		    -webkit-transition: all 450ms ease;
+		       -moz-transition: all 300ms ease;
+		        -ms-transition: all 300ms ease;
+		            transition: all 300ms ease;
+		    
+		    -webkit-transform-origin: 50% 0%;
+		       -moz-transform-origin: 50% 0%;
+		        -ms-transform-origin: 50% 0%;
+		            transform-origin: 50% 0%;
+		    
+		    -webkit-transform-style: preserve-3d;
+		       -moz-transform-style: preserve-3d;
+		        -ms-transform-style: preserve-3d;
+		            transform-style: preserve-3d;
+
+		}
+		.roll:hover span {
+		    // background: rgba(190,190,20,.9);
+		    // background: $link-background-color;
+
+		    -webkit-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+		       -moz-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+		        -ms-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+		            transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+
+			// -webkit-transform: rotatex(-90deg);
+		}
+		.roll span:after {
+		    content: attr(data-title);
+
+		    display: block;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    padding: 1px 2px;
+		    white-space: nowrap;
+
+		    color: white;
+		    background: #a533fd;
+		    background: $link-background-color-hover;
+
+		    -webkit-transform-origin: 50% 0%;
+		       -moz-transform-origin: 50% 0%;
+		        -ms-transform-origin: 50% 0%;
+		            transform-origin: 50% 0%;
+
+		    -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+		       -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+		        -ms-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+		            transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
 		}
 	}
 }

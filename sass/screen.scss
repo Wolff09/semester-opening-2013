@@ -3,16 +3,33 @@
  */
 
 // GOOGLE FONT API: Unica One 400, Abel 400
-@import url("http://fonts.googleapis.com/css?family=Unica+One:400|Abel:400");
+// @import url("http://fonts.googleapis.com/css?family=Unica+One:400|Abel:400"); # TODO: add again (removed for testing purpose)
 
 // BASIC PAGE SETUP
 $background-color: #002;
 $default_page_height: 1300px;
 $number_of_pages: 3;
 
+// TEXT BOX SETTINGS
+$box-width: 350px;
+$box-padding-top: 10px;
+$box-padding-bottom: 5px;
+$box-padding-left-right: 5px;
+$box-background-color: #424242; // rgb(180, 190, 160); // #DFDFDF
+$box-background-use-gradient: true;
+$box-background-color-start: #6a6a6a;
+$box-background-color-end: #424242;
+$box-opacity: 1; // .9;
+$box-border-color: lighten($box-background-color, 8%); //#FC3;
+$box-border-width: 2px;
+$box-border-radius: 2px; // 20px;
+$box-shadow-color: rgba(0,0,0,0.55); // #FFF;
+$box-shadow-width: 0;
+$box-shadow-blur: 3px;
+
 // HEADLINE SETTINGS
 $head-overflow-size: 25px;
-$head-color: #424242; // #ddd;
+$head-color: $box-background-color; // #ddd;
 $head-size: 32pt;
 $head-font: "Unica One";
 $head-font-weight: 400;
@@ -35,28 +52,11 @@ $text-color: #f1f1f1;
 $text-size: 14pt;
 $text-font: "Abel";
 
-// TEXT BOX SETTINGS
-$box-width: 350px;
-$box-padding-top: 10px;
-$box-padding-bottom: 5px;
-$box-padding-left-right: 5px;
-$box-background-color: #424242; // rgb(180, 190, 160); // #DFDFDF
-$box-background-use-gradient: true;
-$box-background-color-start: #6a6a6a;
-$box-background-color-end: #424242;
-$box-opacity: 1; // .9;
-$box-border-color: lighten($box-background-color, 8%); //#FC3;
-$box-border-width: 2px;
-$box-border-radius: 2px; // 20px;
-$box-shadow-color: rgba(0,0,0,0.55); // #FFF;
-$box-shadow-width: 0;
-$box-shadow-blur: 3px;
-
 // NAVI LINK SETTINGS
 $link-color: $text-color;
-$link-color-hover: lighten($text-color, 85%);
+$link-color-hover: darken($head-color, 15%);
 $link-background-color: darken($box-background-color, 20%);
-$link-background-color-hover: darken($box-background-color, 50%);
+$link-background-color-hover: $head-background-color-end;
 $link-border-color: darken($box-border-color, 50%);
 
 
