@@ -13,7 +13,9 @@
 #layerBackground {
 	@include layer(1, 100%);
 	height: 100%;
-	background-image: url("../img/bg1.gif"); // TODO: proper background (stars, aurora)
+	// background-image: url("../img/bg1.gif"); // TODO: proper background (stars, aurora)
+	background-color: black;
+	background-image: url("../img/sterne.png");
 }
 
 #layerBack {

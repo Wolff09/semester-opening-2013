@@ -20,9 +20,12 @@ This page uses the following libraries/frameworks/stuff:
 
 - [jQuery](http://jquery.com)
 - [Sass](http://sass-lang.com) with [Compass](http://compass-style.org)
+- [HTML5Boilerplate](http://html5boilerplate.com) (mit [Modernizr](http://modernizr.com))
 - [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll) instead of [jQuery Scroll Animation](http://www.abeautifulsite.net/blog/2010/01/smoothly-scroll-to-an-element-without-a-jquery-plugin/) and [jQuery ScrollTo Plugin](http://flesler.blogspot.de/2007/10/jqueryscrollto.html)
 - [CSS3 Infobox](http://www.prothemer.com/blog/experiments/no-presentational-markup-css3-infobox/)
-- <span style="text-decoration: line-through">[Html9Boilerstrap](http://html9responsiveboilerstrapjs.com/)</span> [HTML5Boilerplate](http://html5boilerplate.com) (mit [Modernizr](http://modernizr.com))
+- [Html9Boilerstrap](http://html9responsiveboilerstrapjs.com/)
+
+TODO: description of the watchhawk.py script
 
 ### Things we might use
 
