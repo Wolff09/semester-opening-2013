@@ -18,11 +18,11 @@ $navi-link-padding-vertical: 2px !default;
         position: relative;
         @include transition(all .3s ease-out);
 		@include transform-style(preserve-3d);
-        @include transform( translatez(-25px) );
+        @include transform( translatez(-15px) );
     }
 
     a:hover .container {
-        @include transform( translatez(-25px) rotatex(90deg) );
+        @include transform( translatez(-15px) rotatex(90deg) );
     }
 
     .front, .back, .back span {
@@ -30,13 +30,13 @@ $navi-link-padding-vertical: 2px !default;
     }
 
     .front, .back span {
-        padding: 15px 10px;
+        padding: 1px 15px;
     }
 
     .front {
-        background-color: black;
-        color: white;
-        @include transform( rotatex(0deg) translatez(25px) );
+        background-color: $link-background-color;
+        color: $link-color;
+        @include transform( rotatex(0deg) translatez(15px) );
     }
 
     .back {
@@ -46,9 +46,9 @@ $navi-link-padding-vertical: 2px !default;
         top: 0;
         left: 0;
 
-        background-color: grey;
-        color: black;
-        @include transform( rotatex(-90deg) translatez(25px) );
+        background-color: $link-background-color-hover;
+        color: $link-color-hover;
+        @include transform( rotatex(-90deg) translatez(15px) );
     }
 
 }
