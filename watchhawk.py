@@ -1,33 +1,47 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 import sys
 import time
+from datetime import datetime
 import re
-from fsmonitor import FSMonitor
+from fsmonitor import FSMonitor, FSMonitorThread
 from jinja2 import Environment, FileSystemLoader
 
-TEMPLATE_FOLDER = 'templates'
+TEMPLATE_FOLDERS = ('templates', 'templates/pages')
 MAIN_TEMPLATE = 'index.html'
 DESTINATION = 'index.html'
 INTERVAL = .2
+VERY_LONG = 1000
 
 def change_detected(talky=True):
-    if talky: print('Change detected... ', end='')
+    if talky: print('%s: Change detected... ' % datetime.now().strftime("%H:%M:%S") , end='')
     # recompile jinja template
-    env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER))
+    env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDERS), extensions=['jinja2.ext.with_', 'jinja2.ext.autoescape'])
     template = env.get_template(MAIN_TEMPLATE)
     result = template.render()
     # save the results
     with open(DESTINATION, 'wb') as f:
-        f.write(result)
+        f.write(result.encode('UTF-8'))
     if talky: print('written!')
 
 def watch():
-    m = FSMonitor()
-    m.add_dir_watch(TEMPLATE_FOLDER)
-    while True:
-        for evt in m.read_events():
-            time.sleep(INTERVAL)
-            change_detected()
+    print(">>> I'm watching the '%s' folder%s like a HAWK!" % ("', '".join(TEMPLATE_FOLDERS), "s" if len(TEMPLATE_FOLDERS) > 1 else ""))
+    print(">>> I lost my glasses! Thus, folders might not be watched recursively!")
+    m = FSMonitorThread(callback=lambda event: change_detected())
+    for dir in TEMPLATE_FOLDERS:
+        m.add_dir_watch(dir)
+    # FSMonitorThread is a daemon thread and we can't change that :(
+    # ... so we use this opportunity to clean up
+    try:
+        while True: time.sleep(VERY_LONG)
+    except KeyboardInterrupt:
+        m.stop()
+        del m
+        print("\n>>> Watch you next time...")
+        exit(0)
+
 
 def compile():
     change_detected(talky=False)

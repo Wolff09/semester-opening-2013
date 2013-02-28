@@ -1,0 +1,9 @@
+p {
+	margin: 4px;
+	margin-bottom: 1em;
+	@include word-break(break-all);
+
+	strong {
+		display: block;
+	}
+}

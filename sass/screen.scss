@@ -9,6 +9,11 @@
 $background-color: #002;
 $default_page_height: 1300px;
 $number_of_pages: 3;
+// $layer-width -> default is 940px
+
+/*
+	TODO: default values in the scss files and only overwriting here
+*/
 
 // TEXT BOX SETTINGS
 $box-width: 350px;
@@ -28,24 +33,13 @@ $box-shadow-width: 0;
 $box-shadow-blur: 3px;
 
 // HEADLINE SETTINGS
-$head-overflow-size: 25px;
-$head-color: $box-background-color; // #ddd;
-$head-size: 32pt;
-$head-font: "Unica One";
-$head-font-weight: 400;
-$head-line-height: 1em;
-$head-padding-top-bottom: .3em;
-$head-padding-left-right: .5em;
-$head-margin-bottom: .5em;
-$head-background-shadow-color: rgba(0,0,0,0.75);
-$head-background-shadow-width: 4px;
-$head-background-shadow-blur: 26px;
-$head-background-color: #FF8F40;
+// defaults in: sass/content_box/_headder.scss
+$head-text-color: $box-background-color;
 $head-background-use-gradient: true;
-$head-background-color-start: darken($head-background-color, 23%);
-$head-background-color-end: darken($head-background-color, 12%);
-$head-background-badge-fade: 10%;
-$head-text-shadows: none; // $head-color 5px 5px 15px; // #999 -4px -1px 1px, #777 -6px -1px 1px,
+$head-text-font: "Unica One";
+$head-badge-fade: 25%;
+$head-background-color-end: darken(#FF8F40, 12%); // TODO: remove these (they are copied defaults)
+$head-background-color-start: darken(#FF8F40, 23%); // TODO: remove these (they are copied defaults)
 
 // TEXT BODY SETTINGS
 $text-color: #f1f1f1;
@@ -54,7 +48,7 @@ $text-font: "Abel";
 
 // NAVI LINK SETTINGS
 $link-color: $text-color;
-$link-color-hover: darken($head-color, 15%);
+$link-color-hover: darken($head-text-color, 15%);
 $link-background-color: darken($box-background-color, 20%);
 $link-background-color-hover: $head-background-color-end;
 $link-border-color: darken($box-border-color, 50%);

@@ -1,0 +1,132 @@
+$navi-margin: .5em 0 0 0 !default;
+$navi-link-padding-horizontal: 3px !default;
+$navi-link-padding-vertical: 2px !default;
+
+// see: http://davidwalsh.name/3d-menu
+.navi {
+	text-align: center;
+	margin: $navi-margin;
+	font-size: $text-size;
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        @include perspective(200px);
+    }
+
+    a .container {
+        position: relative;
+        @include transition(all .3s ease-out);
+		@include transform-style(preserve-3d);
+        @include transform( translatez(-25px) );
+    }
+
+    a:hover .container {
+        @include transform( translatez(-25px) rotatex(90deg) );
+    }
+
+    .front, .back, .back span {
+        display: block;
+    }
+
+    .front, .back span {
+        padding: 15px 10px;
+    }
+
+    .front {
+        background-color: black;
+        color: white;
+        @include transform( rotatex(0deg) translatez(25px) );
+    }
+
+    .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        background-color: grey;
+        color: black;
+        @include transform( rotatex(-90deg) translatez(25px) );
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// SAVE /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+// .navi {
+//	text-align: center;
+//	margin: $navi-margin;
+//	font-size: $text-size;
+
+//	a {
+//		padding: $navi-link-padding-vertical $navi-link-padding-horizontal;
+//		padding: 5px;
+//		display: inline-block;
+//		overflow: visible;
+//		position: relative;
+//		cursor: pointer;
+
+//		-webkit-perspective: 200px;
+//		-webkit-transition: all .07s linear;
+
+//		> div {
+//			display: block;
+//			position: absolute;
+//			top: 0;
+//			left: 0;
+//			width: 100%;
+//			height: 100%;
+//			// pointer-events: none; // TODO: da fuq is that shiat??
+
+//			-webkit-transition: all .3s ease-out;
+//			-webkit-transform: translatez(-25px);
+//			-webkit-transform-style: preserve-3d;
+//		}
+
+//		&:hover > div, &:focus > div {
+//			-webkit-transform: translateZ(-25px) rotateX(90deg);
+//		}
+
+//		.front, .back {
+//			display: block;
+//			width: 100%;
+//			height: 100%;
+//			position: absolute;
+//			top: 0;
+//			left: 0;
+
+//			// padding: $navi-link-padding-vertical $navi-link-padding-horizontal;
+//			// padding: 3px 3px;
+//			// pointer-events: none;
+//			// box-sizing: border-box;
+
+//			// @include border-radius(5px);
+//			// border: 1px solid grey;
+//		}
+
+//		.front {
+//			color: $link-color;
+//			background-color: $link-background-color;
+//			-webkit-transform: rotatex(0deg) translatez(15px);
+//		}
+//		.back {
+//			color: $link-color-hover;
+//			background-color: $link-background-color-hover;
+//			-webkit-transform: rotatex(-90deg) translatez(15px);
+//		}
+//	}
+// }

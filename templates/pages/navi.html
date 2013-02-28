@@ -1,0 +1,12 @@
+<div class="navi">
+	{% if not is_first %}
+		{% set link_title = "Zurück" %}
+		{% set offset = -1 %}
+	    {% include "pages/navi_link.html" %}
+    {% endif %}
+    {% if not is_last %}
+		{% set link_title = "Weiter" %}
+		{% set offset = 1 %}
+	    {% include "pages/navi_link.html" %}
+    {% endif %}
+</div>
