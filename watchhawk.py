@@ -13,18 +13,22 @@ TEMPLATE_FOLDERS = ('templates', 'templates/pages')
 MAIN_TEMPLATE = 'index.html'
 DESTINATION = 'index.html'
 INTERVAL = .2
-VERY_LONG = 1000
 
-def change_detected(talky=True):
-    if talky: print('%s: Change detected... ' % datetime.now().strftime("%H:%M:%S") , end='')
-    # recompile jinja template
-    env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDERS), extensions=['jinja2.ext.with_', 'jinja2.ext.autoescape'])
-    template = env.get_template(MAIN_TEMPLATE)
-    result = template.render()
-    # save the results
-    with open(DESTINATION, 'wb') as f:
-        f.write(result.encode('UTF-8'))
-    if talky: print('written!')
+def change_detected(watching=True):
+    if watching: print('%s: Change detected... ' % datetime.now().strftime("%H:%M:%S") , end='')
+    try:
+        # recompile jinja template
+        env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDERS), extensions=['jinja2.ext.with_', 'jinja2.ext.autoescape'])
+        template = env.get_template(MAIN_TEMPLATE)
+        result = template.render()
+        # save the results
+        with open(DESTINATION, 'wb') as f:
+            f.write(result.encode('UTF-8'))
+    except Exception, e:
+        if watching: print('failed!')
+        else: raise e
+    else:
+        if watching: print('written!')
 
 def watch():
     print(">>> I'm watching the '%s' folder%s like a HAWK!" % ("', '".join(TEMPLATE_FOLDERS), "s" if len(TEMPLATE_FOLDERS) > 1 else ""))
@@ -35,7 +39,9 @@ def watch():
     # FSMonitorThread is a daemon thread and we can't change that :(
     # ... so we use this opportunity to clean up
     try:
-        while True: time.sleep(VERY_LONG)
+        while True:
+            if raw_input():
+                change_detected(watching=True)
     except KeyboardInterrupt:
         m.stop()
         del m
@@ -44,7 +50,7 @@ def watch():
 
 
 def compile():
-    change_detected(talky=False)
+    change_detected(watching=False)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
