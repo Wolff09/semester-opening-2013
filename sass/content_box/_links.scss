@@ -8,6 +8,7 @@ $body-link-background-hover: darken(#FF8F40, 10%) !default;
 $body-link-perspective: 300px;
 $body-link-transition: all 250ms ease;
 
+// see: http://www.dreamdealer.nl/articles/how_to_create_3d_links_rolling_on_hover.html
 a {
 	text-decoration: underline;
 	color: $body-link-color;
