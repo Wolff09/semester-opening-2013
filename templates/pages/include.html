@@ -1,7 +1,7 @@
 <div id="page{{ page_number }}">
-    <div class="pageContentWrapper">
+    <article class="page-content">
         <h1><span>{% include 'pages/' + page_name ~ '/head.html' %}</span></h1>
-        {% include 'pages/' + page_name ~ '/body.html' %}
+        <section>{% include 'pages/' + page_name ~ '/body.html' %}</section>
         {% include "pages/navi.html" with context %}
-    </div>
+    </article>
 </div>

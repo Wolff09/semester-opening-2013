@@ -41,17 +41,23 @@ $head-badge-fade: 25%;
 $head-background-color-end: darken(#FF8F40, 12%); // TODO: remove these (they are copied defaults)
 $head-background-color-start: darken(#FF8F40, 23%); // TODO: remove these (they are copied defaults)
 
-// TEXT BODY SETTINGS
-$text-color: #f1f1f1;
-$text-size: 14pt;
-$text-font: "Abel";
+// TEXT SETTINGS
+$text-base-font: "Abel";
+$text-base-size: 14pt;
+$text-base-color: #f1f1f1;
+$body-heading-color: #FF8F40;
+$body-heading-font: "Unica One";
+$body-heading-size: 16pt;
+$body-heading-decoration: none;
+$body-heading-border-bottom: 1px solid $body-heading-color;
 
 // NAVI LINK SETTINGS
-$link-color: $text-color;
-$link-color-hover: darken($head-text-color, 15%);
-$link-background-color: darken($box-background-color, 20%);
-$link-background-color-hover: $head-background-color-end;
-$link-border-color: darken($box-border-color, 50%);
+$navi-text-size: $text-base-size - 1;
+$navi-link-color: $text-base-color;
+$navi-link-color-hover: darken($head-text-color, 15%);
+$navi-link-background: darken($box-background-color, 20%);
+$navi-link-background-hover: $head-background-color-end;
+$navi-link-border: none;
 
 
 // INCLUDE COMPASS AND CUSTOM STYLES

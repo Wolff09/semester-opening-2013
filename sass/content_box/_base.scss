@@ -10,7 +10,15 @@
 @import "compass/css3/transform";
 
 
-.pageContentWrapper {
+// TODO: remove or integrate the following:
+$link-color: $text-base-color;
+$link-color-hover: darken($head-text-color, 15%);
+$link-background-color: darken($box-background-color, 20%);
+$link-background-color-hover: $head-background-color-end;
+$link-border-color: darken($box-border-color, 50%);
+
+
+.page-content {
 	width: $box-width;
 	position: relative;
 	z-index: 10;
@@ -28,40 +36,16 @@
 	@include border-radius($box-border-radius);
 	padding: $box-padding-top $box-padding-left-right $box-padding-bottom $box-padding-left-right;
 
-	// font settings
-	color: $text-color;
-	font-size: 90%;
-	font-family: $text-font;
-	font-size: $text-size;
+	// base font settings
+	color: $text-base-color;
+	font-family: $text-base-font;
+	font-size: $text-base-size;
 	line-height: 1.5em;
 
 	@import "content_box/box_appearence";
-	@import "content_box/headder";
-	@import "content_box/paragraph";
-	@import "content_box/links";
+	@import "content_box/head";
+	@import "content_box/body";
 	@import "content_box/navi";
-
-	.naviLinks {
-		text-align: center;
-		margin-top: 1.5em;
-
-		a.scrollLink {
-			border: 1px solid $link-border-color;
-			background-color: $link-background-color;
-			padding: 3px 6px;
-			text-decoration: none;
-			color: $link-color;
-			font-size: $text-size - 1;
-			margin: 4px;
-			@include border-radius(4px);
-
-			&:hover {
-				background-color: $link-background-color-hover;
-				color: $link-color-hover;
-				@include single-transition();
-			}
-		}
-	}
 
 /* ######################################################################################
    ##################### Your are entering the experimental stage ! #####################
@@ -71,7 +55,7 @@
 		margin-left: 2em;
 
 		a {
-			font-size: $text-size;
+			font-size: $text-base-size;
 		    text-decoration: none;
 		    color: $link-color;
 		}

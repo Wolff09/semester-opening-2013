@@ -1,0 +1,33 @@
+@import "compass/css3/hyphenation";
+
+$body-paragraph-margin: 4px 4px 1em 4px !default;
+$body-heading-color: inherit !default;
+$body-heading-font: inherit !default;
+$body-heading-size: 110% !default;
+$body-heading-weight: normal !default;
+$body-heading-decoration: underline !default;
+$body-heading-border-bottom: none !default;
+$body-heading-border-top: none !default;
+$body-heading-margin: 0 0 .6em 0 !default;
+$body-heading-padding: 0 6px !default;
+
+section {
+	p {
+		margin: $body-paragraph-margin;
+		@include word-break(break-all);
+	}
+
+	#{headings(2,6)} {
+		color: $body-heading-color;
+		font-family: $body-heading-font;
+		font-size: $body-heading-size;
+		font-weight: $body-heading-weight;
+		text-decoration: $body-heading-decoration;
+		border-bottom: $body-heading-border-bottom;
+		border-top: $body-heading-border-top;
+		padding: $body-heading-padding;
+		margin: $body-heading-margin;
+	}
+
+	@import "content_box/links";
+}

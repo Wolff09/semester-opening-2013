@@ -1,28 +1,42 @@
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+$navi-link-background: #333 !default;
+$navi-link-background-hover: #ccc !default;
+$navi-link-border: 1px solid black !default;
+$navi-link-border-hover: $navi-link-border !default;
+$navi-link-border-radius: 0 !default;
+$navi-link-color: #ccc !default;
+$navi-link-color-hover: #333 !default;
+$navi-link-padding: 1px 15px !default;
 $navi-margin: .5em 0 0 0 !default;
-$navi-link-padding-horizontal: 3px !default;
-$navi-link-padding-vertical: 2px !default;
+$navi-perspective: 200px !default;
+$navi-text-size: auto !default;
+$navi-transform-translatez: 15px !default;
+$navi-transition: all .3s ease-out !default;
 
 // see: http://davidwalsh.name/3d-menu
 .navi {
 	text-align: center;
 	margin: $navi-margin;
-	font-size: $text-size;
+	font-size: $navi-text-size;
 
     a {
         display: inline-block;
         text-decoration: none;
-        @include perspective(200px);
+        @include perspective($navi-perspective);
     }
 
     a .container {
         position: relative;
-        @include transition(all .3s ease-out);
+        @include transition($navi-transition);
 		@include transform-style(preserve-3d);
-        @include transform( translatez(-15px) );
+        @include transform(translatez(-$navi-transform-translatez));
     }
 
     a:hover .container {
-        @include transform( translatez(-15px) rotatex(90deg) );
+        @include transform(translatez(-$navi-transform-translatez) rotatex(90deg));
     }
 
     .front, .back, .back span {
@@ -30,13 +44,17 @@ $navi-link-padding-vertical: 2px !default;
     }
 
     .front, .back span {
-        padding: 1px 15px;
+        padding: $navi-link-padding;
     }
 
     .front {
-        background-color: $link-background-color;
-        color: $link-color;
-        @include transform( rotatex(0deg) translatez(15px) );
+        color: $navi-link-color;
+        border: $navi-link-border;
+        background-color: $navi-link-background;
+        @include transform(rotatex(0deg) translatez($navi-transform-translatez));
+        @if $navi-link-border-radius > 0 {
+			@include border-radius($navi-link-border-radius);
+        }
     }
 
     .back {
@@ -46,87 +64,12 @@ $navi-link-padding-vertical: 2px !default;
         top: 0;
         left: 0;
 
-        background-color: $link-background-color-hover;
-        color: $link-color-hover;
-        @include transform( rotatex(-90deg) translatez(15px) );
+        color: $navi-link-color-hover;
+        border: $navi-link-border-hover;
+        background-color: $navi-link-background-hover;
+        @include transform(rotatex(-90deg) translatez($navi-transform-translatez));
+        @if $navi-link-border-radius > 0 {
+			@include border-radius($navi-link-border-radius);
+        }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////// SAVE /////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-
-// .navi {
-//	text-align: center;
-//	margin: $navi-margin;
-//	font-size: $text-size;
-
-//	a {
-//		padding: $navi-link-padding-vertical $navi-link-padding-horizontal;
-//		padding: 5px;
-//		display: inline-block;
-//		overflow: visible;
-//		position: relative;
-//		cursor: pointer;
-
-//		-webkit-perspective: 200px;
-//		-webkit-transition: all .07s linear;
-
-//		> div {
-//			display: block;
-//			position: absolute;
-//			top: 0;
-//			left: 0;
-//			width: 100%;
-//			height: 100%;
-//			// pointer-events: none; // TODO: da fuq is that shiat??
-
-//			-webkit-transition: all .3s ease-out;
-//			-webkit-transform: translatez(-25px);
-//			-webkit-transform-style: preserve-3d;
-//		}
-
-//		&:hover > div, &:focus > div {
-//			-webkit-transform: translateZ(-25px) rotateX(90deg);
-//		}
-
-//		.front, .back {
-//			display: block;
-//			width: 100%;
-//			height: 100%;
-//			position: absolute;
-//			top: 0;
-//			left: 0;
-
-//			// padding: $navi-link-padding-vertical $navi-link-padding-horizontal;
-//			// padding: 3px 3px;
-//			// pointer-events: none;
-//			// box-sizing: border-box;
-
-//			// @include border-radius(5px);
-//			// border: 1px solid grey;
-//		}
-
-//		.front {
-//			color: $link-color;
-//			background-color: $link-background-color;
-//			-webkit-transform: rotatex(0deg) translatez(15px);
-//		}
-//		.back {
-//			color: $link-color-hover;
-//			background-color: $link-background-color-hover;
-//			-webkit-transform: rotatex(-90deg) translatez(15px);
-//		}
-//	}
-// }
