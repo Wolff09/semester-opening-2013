@@ -1,25 +1,34 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
-@import "compass/css3/hyphenation";
 @import "compass/css3/opacity";
-@import "compass/css3/text-shadow";
 @import "compass/css3/images";
 
-// TODO: do we need the following?
-@import "compass/css3/transition";
-@import "compass/css3/transform";
+// default box settings
+$box-background-color: #424242 !default;
+$box-background-color-end: #424242 !default;
+$box-background-color-start: #6a6a6a !default;
+$box-background-use-gradient: true !default;
+$box-border-color: lighten($box-background-color, 8%) !default;
+$box-border-radius: 2px !default;
+$box-border-width: 2px !default;
+$box-margin-top: 50px !default;
+$box-opacity: 1 !default;
+$box-padding-bottom: 5px !default;
+$box-padding-left-right: 5px !default;
+$box-padding-top: 10px !default;
+$box-shadow-blur: 3px !default;
+$box-shadow-color: rgba(0,0,0,0.55) !default;
+$box-shadow-width: 0 !default;
+$box-width: 350px !default;
 
-
-// TODO: remove or integrate the following:
-$link-color: $text-base-color;
-$link-color-hover: darken($head-text-color, 15%);
-$link-background-color: darken($box-background-color, 20%);
-$link-background-color-hover: $head-background-color-end;
-$link-border-color: darken($box-border-color, 50%);
-
+// default font settings
+$text-base-font: "Arial", sans !default;
+$text-base-size: 14px !default;
+$text-base-color: white !default;
 
 .page-content {
 	width: $box-width;
+	margin-top: $box-margin-top;
 	position: relative;
 	z-index: 10;
 
@@ -29,7 +38,9 @@ $link-border-color: darken($box-border-color, 50%);
 		@include background-image(linear-gradient($box-background-color-start, $box-background-color-end));
 	}
 	@include single-box-shadow($box-shadow-color, $box-shadow-width, $box-shadow-width, $box-shadow-blur);
-	@include opacity($box-opacity);
+	@if $box-opacity < 1 {
+		@include opacity($box-opacity);
+	}
 
 	// border and padding
 	border: $box-border-width solid $box-border-color;
@@ -46,114 +57,4 @@ $link-border-color: darken($box-border-color, 50%);
 	@import "content_box/head";
 	@import "content_box/body";
 	@import "content_box/navi";
-
-/* ######################################################################################
-   ##################### Your are entering the experimental stage ! #####################
-   ###################################################################################### */
-
-	.navi2 {
-		margin-left: 2em;
-
-		a {
-			font-size: $text-base-size;
-		    text-decoration: none;
-		    color: $link-color;
-		}
-		    
-		a:hover {
-		    color: $link-color-hover;
-		    text-shadow: none;
-		    border: none;
-		    border-radius: 2px;
-		}
-
-		a span {
-			// background-color: yellow;
-			background-color: $link-background-color;
-		}
-
-		/*********************************************
-		 * ROLLING LINKS
-		 *********************************************/
-
-		.roll {
-		    display: inline-block;
-		    overflow: hidden;
-		    vertical-align: top;
-
-		    -webkit-perspective: 300px;
-		       -moz-perspective: 300px;
-		        -ms-perspective: 300px;
-		            perspective: 300px;
-
-		    -webkit-perspective-origin: 50% 50%;
-		       -moz-perspective-origin: 50% 50%;
-		        -ms-perspective-origin: 50% 50%;
-		            perspective-origin: 50% 50%;
-
-			// -webkit-perspective: 200px;
-			// -webkit-transition: all .07s linear;
-		}
-		.roll:hover {
-		    background: none;
-		    text-shadow: none;
-		}
-		.roll span {
-		    display: block;
-		    position: relative;
-		    padding: 0 2px;
-		    pointer-events: none;
-
-		    -webkit-transition: all 450ms ease;
-		       -moz-transition: all 300ms ease;
-		        -ms-transition: all 300ms ease;
-		            transition: all 300ms ease;
-		    
-		    -webkit-transform-origin: 50% 0%;
-		       -moz-transform-origin: 50% 0%;
-		        -ms-transform-origin: 50% 0%;
-		            transform-origin: 50% 0%;
-		    
-		    -webkit-transform-style: preserve-3d;
-		       -moz-transform-style: preserve-3d;
-		        -ms-transform-style: preserve-3d;
-		            transform-style: preserve-3d;
-
-		}
-		.roll:hover span {
-		    // background: rgba(190,190,20,.9);
-		    // background: $link-background-color;
-
-		    -webkit-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
-		       -moz-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
-		        -ms-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
-		            transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
-
-			// -webkit-transform: rotatex(-90deg);
-		}
-		.roll span:after {
-		    content: attr(data-title);
-
-		    display: block;
-		    position: absolute;
-		    left: 0;
-		    top: 0;
-		    padding: 1px 2px;
-		    white-space: nowrap;
-
-		    color: white;
-		    background: #a533fd;
-		    background: $link-background-color-hover;
-
-		    -webkit-transform-origin: 50% 0%;
-		       -moz-transform-origin: 50% 0%;
-		        -ms-transform-origin: 50% 0%;
-		            transform-origin: 50% 0%;
-
-		    -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
-		       -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
-		        -ms-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
-		            transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
-		}
-	}
 }

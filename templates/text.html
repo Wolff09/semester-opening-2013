@@ -1,5 +1,9 @@
 {% set pages = ["home", "stuff", "party"] %}
 
+{% macro link(name, href) -%}
+    <a href="{{ href }}"><span data-title="{{ name }}">{{ name }}</span></a>
+{%- endmacro %}
+
 <div id="layerText">
 	{% for page in pages %}
 		{% with %}
@@ -11,38 +15,3 @@
 		{% endwith %}
 	{% endfor %}
 </div>
-
-{# TODO: remove
-    <div id="page1">
-        <div class="pageContentWrapper">
-            <h1><span>Semester Opening 2013</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-            <ul class="navi">
-                <li><a href="/" class="three-d">
-                    Home
-                    <span aria-hidden="true" class="three-d-box">
-                        <span class="front">Home</span>
-                        <span class="back">Home</span>
-                    </span>
-                </a></li>
-                <li><a href="/demos" class="three-d">
-                    Demos
-                    <span aria-hidden="true" class="three-d-box">
-                        <span class="front">Demos</span>
-                        <span class="back">Demos</span>
-                    </span>
-                </a></li>
-                <!-- more items here -->
-            </ul>
-            <div class="navi2">
-                <a href="/" class="roll"><span data-title="Home">Home</span></a>
-                <a href="/" class="roll"><span data-title="Demos">Demos</span></a>
-            </div>
-
-            <div class="naviLinks">
-                <a class="scrollLink" href="#page2">Next Page</a>
-            </div>
-        </div>
-    </div>
-#}

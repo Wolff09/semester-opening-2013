@@ -1,14 +1,8 @@
 <p>
-    Lorem ipsum dolor <a href="#">sit amet</a>, consectetur adipisicing elit,
+    Lorem ipsum dolor {{ link("sit amet", "#") }}, consectetur adipisicing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </p>
 <h2>Test headline</h2>
 <p>
-    Lorem ipsum dolor sit amet, <a href="/">consectetur</a> adipisicing elit.
+    Lorem ipsum dolor sit amet, {{ link("consectetur", "www.google.de") }} adipisicing elit.
 </p>
-
-{# TODO: remove tests #}  
-<div class="navi2">
-    <a href="/" class="roll"><span data-title="Home">Home</span></a>
-    <a href="/" class="roll"><span data-title="Demos">Demos</span></a>
-</div>
