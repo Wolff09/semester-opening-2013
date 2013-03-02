@@ -49,3 +49,4 @@ This page uses the following libraries/frameworks/stuff:
 - [Scrollorama](http://johnpolacek.github.com/scrollorama/)
 - [Easing Plugin](http://gsgd.co.uk/sandbox/jquery/easing/)
 - Photoshop Brushes: [here](http://www.youthedesigner.com/2011/06/28/a-collection-of-radiant-and-sparkling-space-photoshop-brushes/), [here](http://scully7491.deviantart.com/art/Deep-Space-5417450) and [here](http://www.youthedesigner.com/2009/09/25/30-stellar-photoshop-space-renderings/)
+- [Planets](http://all-free-download.com/free-vector/free-planet_page_3.html), [more](http://themecavern.com/free-planets-vector-graphics)
