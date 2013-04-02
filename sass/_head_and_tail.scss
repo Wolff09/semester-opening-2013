@@ -17,6 +17,8 @@
 }
 
 #footer {
-	@include fixed_element(95px, bottom);
+	@include fixed_element(130px, bottom);
+	position: absolute;
+	top: $number_of_pages * $page_height;
 	background-image: url("../img/footer.png"); // TODO: proper background (party people)
 }
