@@ -1,7 +1,7 @@
-{% set pages = ["home", "stuff", "party"] %}
+{% set pages = ["home", "musik", "drinks", "essen", "plan"] %}
 
-{% macro link(name, href) -%}
-    <a href="{{ href }}"><span data-title="{{ name }}">{{ name }}</span></a>
+{% macro link(name, href, scroll=false) -%}
+    <a {% if scroll %}class="scrollLink"{% endif %} href="{{ href }}"><span data-title="{{ name }}">{{ name }}</span></a>
 {%- endmacro %}
 
 <div id="layerText">
