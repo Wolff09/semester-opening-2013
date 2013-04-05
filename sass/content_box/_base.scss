@@ -53,8 +53,13 @@ $text-base-color: white !default;
 	font-size: $text-base-size;
 	line-height: 1.5em;
 
-	@import "content_box/box_appearence";
+	// @import "content_box/box_appearence";
 	@import "content_box/head";
 	@import "content_box/body";
 	@import "content_box/navi";
+
+	// fixing some Safari bugs where the font before and after the first navigation are rendered differently
+	-webkit-font-smoothing: antialiased;
+	// this may make the browser to use hardware acceleration (mainly apple products)
+	-webkit-transform: translateZ(0);
 }

@@ -10,6 +10,11 @@ $layer-width: 940px !default;
 	z-index: $zindex;
 }
 
+#objectWrapper {
+	// this may make the browser to use hardware acceleration (mainly apple products)
+	-webkit-transform: translateZ(0);
+}
+
 #layerBackground {
 	@include layer(1, 100%);
 	height: 100%;
