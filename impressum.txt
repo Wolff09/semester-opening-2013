@@ -1,0 +1,28 @@
+~#*********#~
+==Impressum==
+/<<<<<@>>>>>\
+
+Fachschaft Informatik,
+Technische Universität Kaiserslautern
+Gottlieb-Daimler-Str. 48
+67663 Kaiserslautern
+
+Tel.: 0631 / 205 2553
+E-Mail: info@fachschaft.cs.uni-kl.de
+Web: http://www.fachschaft.cs.uni-kl.de/
+
+Design:
+Sebastian Wolff, Sarah Dossinger
+
+Bilder:
+Sarah Dossinger, NASA
+
+Disclaimer:
+Unsere Webseite enthält sog. „externe Links“ (Verknüpfungen zu Webseiten Drit-
+ter), auf deren Inhalt wir keinen Einfluss haben und für den wir aus diesem
+Grund keine Gewähr übernehmen. Für die Inhalte und Richtigkeit der Informationen
+ist der jeweilige Informationsanbieter der verlinkten Webseite verantwortlich.
+Als die Verlinkung vorgenommen wurde, waren für uns keine Rechtsverstöße erkenn-
+bar. Sollte uns eine Rechtsverletzung bekannt werden, wird der jeweilige Link
+umgehend von uns entfernt.
+
