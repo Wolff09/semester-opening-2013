@@ -1,57 +1,72 @@
 @import "compass/css3/transition";
 @import "compass/css3/transform";
 
-$body-link-color: #ccc !default;
-$body-link-color-hover: #424242 !default;
-$body-link-background: #424242 !default;
-$body-link-background-hover: darken(#FF8F40, 10%) !default;
-$body-link-perspective: 300px;
-$body-link-transition: all 250ms ease;
+@import "compass/css3/text-shadow";
+
+$body-link-color: $text-base-color !default;
+$body-link-color-hover: $text-base-color !default;
+$body-link-background: lighten(#FF8F40, 5%) !default;
+$body-link-background-hover: ligthen(#FF8F40, 0%) !default;
+
+$body-link-transition: all 500ms ease;
 
 // see: http://www.dreamdealer.nl/articles/how_to_create_3d_links_rolling_on_hover.html
 a {
-	text-decoration: underline;
 	color: $body-link-color;
-
-	display: inline-block;
-	overflow: hidden;
-
-	@include perspective($body-link-perspective);
-	@include perspective-origin(50% 50%);
+	text-decoration: none;
+	@include text-shadow(0 0 2px $body-link-background, 0 0 4px $body-link-background);
+	@include transition($body-link-transition);
 
 	&:hover {
 		color: $body-link-color-hover;
+		@include text-shadow(0 0 2px $body-link-background, 0 0 4px $body-link-background,
+							 0 0 6px $body-link-background, 0 0 8px $body-link-background,
+							 0 0 10px $body-link-background, 0 0 12px $body-link-background,
+							 0 0 14px $body-link-background, 0 0 16px $body-link-background);
 	}
 
-	span {
-		background: $body-link-background;
-	    display: block;
-	    position: relative;
-	    padding: 0 2px;
+	// text-decoration: underline;
+	// color: $body-link-color;
 
-	    @include transition($body-link-transition);
-	    @include transform-style(preserve-3d);
-	    @include transform-origin(50%, 0%);
-	}
+	// display: inline-block;
+	// overflow: hidden;
 
-	&:hover span {
-		@include transform(translate3d( 0px, 0px, -55px ) rotateX( 90deg ));
-	}
+	// @include perspective($body-link-perspective);
+	// @include perspective-origin(50% 50%);
 
-	span:after {
-	    content: attr(data-title);
+	// &:hover {
+	//	color: $body-link-color-hover;
+	// }
 
-	    display: block;
-	    position: absolute;
-	    left: 0;
-	    top: 0;
-	    padding: 1px 2px;
-	    white-space: nowrap;
+	// span {
+	//	background: $body-link-background;
+	//     display: block;
+	//     position: relative;
+	//     padding: 0 2px;
 
-		color: $body-link-color-hover;
-	    background: $body-link-background-hover;
+	//     @include transition($body-link-transition);
+	//     @include transform-style(preserve-3d);
+	//     @include transform-origin(50%, 0%);
+	// }
 
-	    @include transform-origin(50%, 0%);
-		@include transform(translate3d( 0px, 105%, 0px ) rotateX( -90deg ));
-	}
+	// &:hover span {
+	//	@include transform(translate3d( 0px, 0px, -55px ) rotateX( 90deg ));
+	// }
+
+	// span:after {
+	//     content: attr(data-title);
+
+	//     display: block;
+	//     position: absolute;
+	//     left: 0;
+	//     top: 0;
+	//     padding: 1px 2px;
+	//     white-space: nowrap;
+
+	//	color: $body-link-color-hover;
+	//     background: $body-link-background-hover;
+
+	//     @include transform-origin(50%, 0%);
+	//	@include transform(translate3d( 0px, 105%, 0px ) rotateX( -90deg ));
+	// }
 }

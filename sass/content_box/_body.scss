@@ -14,7 +14,15 @@ $body-heading-padding: 0 6px !default;
 section {
 	p {
 		margin: $body-paragraph-margin;
-		@include word-break(break-all);
+		@include hyphenation;
+	}
+
+	ul {
+		list-style: square;
+	}
+
+	img {
+		max-width: 100% !important;
 	}
 
 	#{headings(2,6)} {

@@ -3,13 +3,14 @@
 
 from __future__ import print_function
 import sys
+import os
 import time
 from datetime import datetime
 import re
 from fsmonitor import FSMonitor, FSMonitorThread
 from jinja2 import Environment, FileSystemLoader
 
-TEMPLATE_FOLDERS = ('templates', 'templates/pages')
+TEMPLATE_FOLDER = 'templates'
 MAIN_TEMPLATE = 'index.html'
 DESTINATION = 'index.html'
 INTERVAL = .2
@@ -18,7 +19,7 @@ def change_detected(watching=True):
     if watching: print('%s: Change detected... ' % datetime.now().strftime("%H:%M:%S") , end='')
     try:
         # recompile jinja template
-        env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDERS), extensions=['jinja2.ext.with_', 'jinja2.ext.autoescape'])
+        env = Environment(loader=FileSystemLoader(TEMPLATE_FOLDER), extensions=['jinja2.ext.with_', 'jinja2.ext.autoescape'])
         template = env.get_template(MAIN_TEMPLATE)
         result = template.render()
         # save the results
@@ -31,10 +32,10 @@ def change_detected(watching=True):
         if watching: print('written!')
 
 def watch():
-    print(">>> I'm watching the '%s' folder%s like a HAWK!" % ("', '".join(TEMPLATE_FOLDERS), "s" if len(TEMPLATE_FOLDERS) > 1 else ""))
-    print(">>> I lost my glasses! Thus, folders might not be watched recursively!")
+    print(">>> I'm watching the '%s' folder like a HAWK!" % TEMPLATE_FOLDER)
+    folders = [x[0] for x in os.walk(TEMPLATE_FOLDER)]
     m = FSMonitorThread(callback=lambda event: change_detected())
-    for dir in TEMPLATE_FOLDERS:
+    for dir in folders:
         m.add_dir_watch(dir)
     # FSMonitorThread is a daemon thread and we can't change that :(
     # ... so we use this opportunity to clean up
