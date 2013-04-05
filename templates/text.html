@@ -1,10 +1,7 @@
 {% set pages = ["home", "musik", "drinks", "essen", "plan"] %}
 
 {% macro link(name, href, scroll=False, href_is_name=False) -%}
-    <a {% if scroll %}class="scrollLink" {% endif %}href="{% if href_is_name -%}{{ make_href(href) }}{% else %}{{ href }}{%- endif %}">
-		<!-- <span data-title="{{ name }}">{{ name }}</span> -->
-		{{ name }}
-	</a>
+    <a {% if scroll %}class="scrollLink" {% endif %}href="{% if href_is_name -%}{{ make_href(href) }}{% else %}{{ href }}{%- endif %}" style="margin-left: 2px;">{{ name }}</a>
 {%- endmacro %}
 
 {% macro make_href(page_name) -%}

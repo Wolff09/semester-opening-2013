@@ -3,20 +3,26 @@
 
 @import "compass/css3/text-shadow";
 
-$body-link-color: #ccc !default;
-$body-link-color-hover: #424242 !default;
-$body-link-background: #424242 !default;
-$body-link-background-hover: darken(#FF8F40, 10%) !default;
-$body-link-perspective: 300px;
-$body-link-transition: all 250ms ease;
+$body-link-color: $text-base-color !default;
+$body-link-color-hover: $text-base-color !default;
+$body-link-background: lighten(#FF8F40, 5%) !default;
+$body-link-background-hover: ligthen(#FF8F40, 0%) !default;
+
+$body-link-transition: all 500ms ease;
 
 // see: http://www.dreamdealer.nl/articles/how_to_create_3d_links_rolling_on_hover.html
 a {
 	color: $body-link-color;
+	text-decoration: none;
+	@include text-shadow(0 0 2px $body-link-background, 0 0 4px $body-link-background);
+	@include transition($body-link-transition);
 
 	&:hover {
-		// @include text-shadow();
-		text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+		color: $body-link-color-hover;
+		@include text-shadow(0 0 2px $body-link-background, 0 0 4px $body-link-background,
+							 0 0 6px $body-link-background, 0 0 8px $body-link-background,
+							 0 0 10px $body-link-background, 0 0 12px $body-link-background,
+							 0 0 14px $body-link-background, 0 0 16px $body-link-background);
 	}
 
 	// text-decoration: underline;

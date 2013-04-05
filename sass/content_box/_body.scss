@@ -17,6 +17,14 @@ section {
 		@include hyphenation;
 	}
 
+	ul {
+		list-style: square;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
 	#{headings(2,6)} {
 		color: $body-heading-color;
 		font-family: $body-heading-font;
