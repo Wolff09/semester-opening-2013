@@ -15,6 +15,7 @@ section {
 	p {
 		margin: $body-paragraph-margin;
 		@include hyphenation;
+		word-break: hyphenate;
 	}
 
 	ul {
