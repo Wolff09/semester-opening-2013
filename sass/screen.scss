@@ -69,9 +69,10 @@ $navi-link-border: none;
 @import "main";
 
 // fuck you firefox
-word-break: hyphenate;
 @-moz-document url-prefix() { 
-  body {
-     word-break: normal;
-  }
+	.page-content section, .page-content section p {
+		word-break: normal !important;
+		-moz-hyphens: none !important;
+		hyphens: none !important;
+	}
 }

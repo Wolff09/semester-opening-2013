@@ -14,7 +14,13 @@ $body-heading-padding: 0 6px !default;
 section {
 	p {
 		margin: $body-paragraph-margin;
-		@include hyphenation;
+		// @include hyphenation;
+		-ms-word-break: break-all;
+		word-break: break-all;
+		word-break: break-word;
+		-moz-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphens: auto;
 	}
 
 	ul {
