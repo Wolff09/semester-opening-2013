@@ -67,3 +67,11 @@ $navi-link-border: none;
 @import "html5bs/helpers";
 @import "head_and_tail";
 @import "main";
+
+// fuck you firefox
+word-break: hyphenate;
+@-moz-document url-prefix() { 
+  body {
+     word-break: normal;
+  }
+}
